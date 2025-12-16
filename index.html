@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Học Kì I</title>
+    <link rel="stylesheet" href="style.css"> 
+    
+    <script src="questions_lsdl.js"></script>
+    <script src="questions_kh.js"></script>
+    <script src="questions_cn.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div id="info-screen" class="screen">
+            <h1 class="main-title">ỨNG DỤNG ÔN TẬP HỌC KÌ I</h1>
+            
+            <div class="header-info-block">
+                <span class="teacher-info">Giáo viên: Mai Thị Thúy</span>
+                <span class="unit-info">Đơn vị: Trường TH Tân Đồng</span>
+            </div>
+            
+            <div class="card info-card">
+                <h2>1. Nhập thông tin Thí sinh</h2>
+                <div class="input-group">
+                    <label for="student-name">Họ và tên:</label>
+                    <input type="text" id="student-name" placeholder="Ví dụ: Nguyễn Văn A">
+                </div>
+                <div class="input-group">
+                    <label for="student-class">Lớp:</label>
+                    <input type="text" id="student-class" placeholder="Ví dụ: 5/1">
+                </div>
+                <p id="info-warning" class="warning-text hidden">Vui lòng nhập đầy đủ Họ và tên, Lớp.</p>
+                <button id="start-menu-btn" disabled>Bắt đầu làm bài</button>
+            </div>
+        </div>
+
+        <div id="menu-screen" class="screen hidden">
+            <div class="menu-header">
+                <span id="display-info"></span>
+                <button id="logout-btn" class="secondary-btn">Thoát / Đổi thông tin</button>
+            </div>
+            
+            <h1 class="main-title">2. Chọn môn thi ôn tập</h1>
+            
+            <div class="header-info-block menu-header-info">
+                <span class="teacher-info">Giáo viên: Mai Thị Thúy</span>
+                <span class="unit-info">Đơn vị: Trường TH Tân Đồng</span>
+            </div>
+
+            <div class="menu-grid three-items">
+                <button class="menu-btn" data-subject="LS_DL">
+                    <span class="subject-icon">📚</span>
+                    <span class="subject-name">Lịch sử và Địa lí</span>
+                </button>
+                <button class="menu-btn" data-subject="KH">
+                    <span class="subject-icon">🔬</span>
+                    <span class="subject-name">Khoa học</span>
+                </button>
+                <button class="menu-btn" data-subject="CN">
+                    <span class="subject-icon">⚙️</span>
+                    <span class="subject-name">Công nghệ</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="exam-screen" class="screen hidden">
+            <div class="exam-header">
+                <h2 id="exam-subject-title">Bài thi: [Môn học]</h2>
+                <div class="exam-selection">
+                    <span class="exam-label">Chọn Đề:</span>
+                    <div id="exam-selection-tabs" class="exam-tabs-5">
+                        <button class="exam-tab" data-exam-id="1">Đề 1</button>
+                        <button class="exam-tab" data-exam-id="2">Đề 2</button>
+                        <button class="exam-tab" data-exam-id="3">Đề 3</button>
+                        <button class="exam-tab" data-exam-id="4">Đề 4</button>
+                        <button class="exam-tab" data-exam-id="5">Đề 5</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exam-layout">
+                <div class="exam-sidebar">
+                    <h3 class="sidebar-title">TIẾN ĐỘ BÀI LÀM (10 câu)</h3>
+                    <div id="progress-container" class="progress-grid">
+                        </div>
+
+                    <button id="submit-exam-btn" class="submit-btn">KẾT THÚC BÀI THI</button> 
+                    <button id="back-to-menu-btn" class="secondary-btn">Quay lại Menu</button>
+                    
+                    <div id="result-box" class="card result-box hidden">
+                        <h4>KẾT QUẢ BÀI THI</h4>
+                        <p id="result-name-class" class="result-info"></p>
+                        <p>Đúng: <span id="correct-count">0</span> / Sai: <span id="incorrect-count">0</span></p>
+                        <p class="status-message" id="exam-status"></p>
+                        <button id="select-new-exam-btn" class="primary-btn">Làm Đề Khác</button>
+                    </div>
+                    
+                    <div class="sidebar-footer">
+                        <p class="teacher-info small">GV: Mai Thị Thúy</p>
+                        <p class="unit-info small">Đơn vị: TH Tân Đồng</p>
+                    </div>
+                </div>
+
+                <div class="exam-content">
+                    <div class="question-info">
+                        <span id="current-question-info">Câu hỏi | Đề số: 1/10</span>
+                    </div>
+                    
+                    <div class="question-area">
+                        <h3 id="question-header">Câu hỏi 1:</h3>
+                        <p id="question-text"></p>
+                    </div>
+                    
+                    <div id="answer-options" class="answer-options">
+                        </div>
+
+                    <div id="correct-answer-display" class="correct-answer-display hidden">
+                        <h4>Đáp án Đúng:</h4>
+                        <p id="correct-answer-text"></p>
+                    </div>
+                    
+                    <div class="navigation-btns">
+                        <button id="prev-btn" class="nav-btn" disabled>← Câu Trước</button>
+                        <button id="next-btn" class="nav-btn">Câu Kế Tiếp →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

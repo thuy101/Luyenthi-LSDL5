@@ -1,0 +1,499 @@
+/* Thiết lập Font chữ cơ bản và reset */
+body {
+    font-family: 'Tahoma', sans-serif; 
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    margin: 20px;
+}
+
+.screen {
+    padding: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Tiêu đề chung --- */
+.main-title {
+    text-align: center;
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 20px; /* Giảm margin để nhường chỗ cho thông tin GV */
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+h2, h3, h4 {
+    color: #3f51b5;
+}
+
+/* --- Định dạng thông tin Giáo viên/Đơn vị --- */
+.header-info-block {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #6a1b9a; /* Màu tím để nổi bật */
+    font-weight: bold;
+}
+
+.header-info-block span {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+/* Dùng cho Menu Screen */
+.menu-header-info {
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+/* --- Footer Sidebar (Bài làm) --- */
+.sidebar-footer {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px dashed #aaa;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6a1b9a;
+}
+.sidebar-footer p {
+    margin: 3px 0;
+}
+
+
+/* --- Màn hình 1: Info Screen --- */
+.info-card {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.warning-text {
+    color: red;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* --- Nút chung --- */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, opacity 0.3s;
+    font-size: 1em;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#start-menu-btn, .primary-btn {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    margin-top: 20px;
+}
+
+#start-menu-btn:not(:disabled):hover, .primary-btn:hover {
+    background-color: #43a047;
+}
+
+.secondary-btn {
+    background-color: #ccc;
+    color: #333;
+    border: 1px solid #999;
+}
+.secondary-btn:hover {
+    background-color: #bbb;
+}
+
+/* --- Màn hình 2: Menu Screen --- */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#display-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Layout chung cho Menu Grid */
+.menu-grid {
+    display: grid;
+    gap: 30px;
+    margin-top: 40px;
+}
+/* Layout 3 cột cố định cho 3 môn */
+.menu-grid.three-items {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.menu-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.subject-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* --- Màn hình 3: Exam Screen Layout --- */
+.exam-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.exam-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Điều chỉnh khu vực 5 tab đề thi */
+.exam-tabs-5 {
+    display: flex;
+    gap: 5px; /* Giảm khoảng cách giữa các nút */
+}
+
+.exam-tab {
+    background-color: #eee;
+    color: #333;
+    padding: 5px 12px; /* Giảm padding để nút gọn hơn */
+    font-size: 0.9em;
+}
+
+.exam-tab.active {
+    background-color: #ffc107;
+    color: #333;
+}
+.exam-tab:hover {
+    background-color: #ffcc5c;
+}
+
+/* FIX LỖI BỐ CỤC: Tạo layout 2 cột cho bài thi */
+.exam-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.exam-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.exam-content {
+    flex-grow: 1;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+.sidebar-title {
+    color: #3f51b5;
+    margin-top: 0;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* --- Progress Grid (Thanh tiến độ) --- */
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.q-number {
+    padding: 10px 5px;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 1em;
+}
+
+.q-number.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 0 5px #007bff;
+}
+
+/* MÀU NHẠT HƠN CHO CÂU ĐÃ LÀM */
+.q-number.answered {
+    background-color: #e6e6fa; 
+    color: #3f51b5;
+    border: 1px solid #b1b1f0;
+}
+
+/* Sau khi nộp bài */
+.q-number.correct {
+    background-color: #4caf50; 
+    color: white;
+}
+.q-number.incorrect {
+    background-color: #f44336; 
+    color: white;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #f44336;
+    color: white;
+    margin: 15px 0;
+    font-size: 1.1em;
+    padding: 12px;
+}
+.submit-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* --- Khu vực Câu hỏi và Đáp án --- */
+.question-info {
+    font-style: italic;
+    color: #666;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.question-area {
+    min-height: 80px;
+}
+
+.answer-options {
+    margin-top: 20px;
+}
+
+.option-item {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid #ddd;
+    font-size: 1.05em;
+    line-height: 1.4;
+}
+
+.option-item:hover {
+    background-color: #e5e5e5;
+}
+
+.option-item input[type="radio"] {
+    margin-right: 10px;
+}
+
+.option-item input[type="radio"]:disabled + * {
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* --- Matching/Nối Cặp (N) --- */
+.matching-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.match-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #eef;
+    border-radius: 4px;
+    border: 1px solid #ccf;
+}
+
+.left-item {
+    flex-grow: 1;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.match-select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    font-size: 1em;
+}
+
+/* --- Điều hướng và Kết quả --- */
+.navigation-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.nav-btn {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 30px;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background-color: #303f9f;
+}
+
+.result-box {
+    text-align: center;
+    padding: 15px;
+    border: 2px solid #3f51b5;
+    background-color: #e8eaf6;
+    margin-top: 20px;
+}
+
+.result-info {
+    font-weight: normal;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#exam-status {
+    font-size: 1.2em;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+.correct-answer-display {
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 3px solid #007bff;
+    background-color: #e6f7ff;
+}
+
+.correct-answer-display h4 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 800px) {
+    .exam-layout {
+        flex-direction: column;
+    }
+
+    .exam-sidebar {
+        width: 100%;
+    }
+    
+    .exam-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .exam-selection {
+        width: 100%;
+        justify-content: space-between;
+    }
+    /* Điều chỉnh cho 5 tab trên màn hình nhỏ */
+    .exam-tabs-5 {
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+
+    .progress-grid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+    
+    .menu-grid.three-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Điều chỉnh thông tin GV/ĐV trên mobile */
+    .header-info-block {
+        font-size: 1em;
+    }
+    .header-info-block span {
+        display: block;
+        margin: 5px 0;
+    }
+}
+@media (max-width: 480px) {
+    .progress-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .menu-grid.three-items {
+        grid-template-columns: 1fr; 
+    }
+}
